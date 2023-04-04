@@ -13,6 +13,10 @@
 		717A2EA029D9A5CE005E4089 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 717A2E9E29D9A5CE005E4089 /* Main.storyboard */; };
 		717A2EA229D9A5D3005E4089 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 717A2EA129D9A5D3005E4089 /* Assets.xcassets */; };
 		717A2EA529D9A5D3005E4089 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 717A2EA329D9A5D3005E4089 /* LaunchScreen.storyboard */; };
+		717A2EAE29D9B7D6005E4089 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717A2EAD29D9B7D6005E4089 /* UIView+Constraints.swift */; };
+		717A2EB029D9B7EE005E4089 /* ViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717A2EAF29D9B7EE005E4089 /* ViewConfiguration.swift */; };
+		717A2EB229D9BBD7005E4089 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717A2EB129D9BBD7005E4089 /* CollectionViewCell.swift */; };
+		717A2EB429D9D68A005E4089 /* OnboardingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717A2EB329D9D68A005E4089 /* OnboardingItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		717A2EA129D9A5D3005E4089 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		717A2EA429D9A5D3005E4089 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		717A2EA629D9A5D3005E4089 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		717A2EAD29D9B7D6005E4089 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
+		717A2EAF29D9B7EE005E4089 /* ViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfiguration.swift; sourceTree = "<group>"; };
+		717A2EB129D9BBD7005E4089 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		717A2EB329D9D68A005E4089 /* OnboardingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +71,10 @@
 				717A2EA129D9A5D3005E4089 /* Assets.xcassets */,
 				717A2EA329D9A5D3005E4089 /* LaunchScreen.storyboard */,
 				717A2EA629D9A5D3005E4089 /* Info.plist */,
+				717A2EAD29D9B7D6005E4089 /* UIView+Constraints.swift */,
+				717A2EAF29D9B7EE005E4089 /* ViewConfiguration.swift */,
+				717A2EB129D9BBD7005E4089 /* CollectionViewCell.swift */,
+				717A2EB329D9D68A005E4089 /* OnboardingItem.swift */,
 			);
 			path = FashionApp;
 			sourceTree = "<group>";
@@ -140,7 +152,11 @@
 			files = (
 				717A2E9D29D9A5CE005E4089 /* ViewController.swift in Sources */,
 				717A2E9929D9A5CE005E4089 /* AppDelegate.swift in Sources */,
+				717A2EB229D9BBD7005E4089 /* CollectionViewCell.swift in Sources */,
 				717A2E9B29D9A5CE005E4089 /* SceneDelegate.swift in Sources */,
+				717A2EB429D9D68A005E4089 /* OnboardingItem.swift in Sources */,
+				717A2EB029D9B7EE005E4089 /* ViewConfiguration.swift in Sources */,
+				717A2EAE29D9B7D6005E4089 /* UIView+Constraints.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
