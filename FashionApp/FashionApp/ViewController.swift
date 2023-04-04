@@ -28,8 +28,8 @@ final class ViewController: UIViewController {
     private lazy var pageControl: UIPageControl = {
         let pageControl = UIPageControl()
         pageControl.tintColor = .systemGroupedBackground
-        pageControl.currentPageIndicatorTintColor = .darkGray
-        pageControl.backgroundColor = .blue
+        pageControl.currentPageIndicatorTintColor = .white
+        pageControl.backgroundColor = .darkGray
         pageControl.numberOfPages = items.count
         return pageControl
     }()
@@ -71,11 +71,7 @@ final class ViewController: UIViewController {
         items.forEach { item in
             let imageView = UIImageView(image: item.image)
             imageView.contentMode = .scaleToFill
-            imageView.clipsToBounds = true
             imageContentView.addSubview(imageView)
-            
-            //            imageView.heightAnchor.constraint(equalTo: imageContentView.heightAnchor, multiplier: 0.3).isActive = true // problema ta na altura, inestigar
-            //                        imageView.heightAnchor.constraint(equalToConstant: 500).isActive = true
             imageView.anchors(topReference: imageContentView.topAnchor,
                               leadingReference: imageContentView.leadingAnchor,
                               trailingReference: imageContentView.trailingAnchor,
@@ -103,21 +99,26 @@ final class ViewController: UIViewController {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let xPosition = scrollView.contentOffset.x
+        
         let index = getCurrentIndex()
-        let fadeInAlpha = (xPosition - collectionviewWidht * CGFloat(index)) / collectionviewWidht
+        let fadeInAlpha = (xPosition - collectionviewWidth * CGFloat(index)) / collectionviewWidth
         //        print("fadeInAlpha = \(fadeInAlpha)")
         let fadeOutAlpha = CGFloat(1 - fadeInAlpha)
         
-        
         let canShow = (index < items.count - 1)
-        
         if canShow {
             imageViews[index].alpha = fadeOutAlpha
             imageViews[index + 1].alpha = fadeInAlpha
         }
+        
+        if let lastImage = imageViews.last {
+            let isNextButtonHidden = lastImage.alpha > 0.99
+            mainButton.isHidden = isNextButtonHidden
+            // trocar por GO TO MAIN PAGE
+        }
     }
     
-    var collectionviewWidht: CGFloat {
+    var collectionviewWidth: CGFloat {
         collectionView.frame.size.width
     }
     
@@ -140,7 +141,8 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath)
             return cell
         }
-        cell.updateCell(with: items[indexPath.row])
+        let isLastCell = indexPath.row == items.count - 1
+        cell.updateCell(with: items[indexPath.row], isLastCell: isLastCell)
         return cell
     }
     
@@ -157,15 +159,14 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
 extension ViewController: ViewConfiguration {
     func configViews() {
         view.backgroundColor = .white
-        imageContentView.backgroundColor = .orange
+        collectionView.backgroundColor = .clear
     }
     
     func buildViews() {
         view.addSubview(mainContentView)
         
         [mainButton, pageControl].forEach(mainContentView.addSubview)
-        
-        [cellContentView, imageContentView].forEach(mainContentView.addSubview)
+        [imageContentView, cellContentView].forEach(mainContentView.addSubview)
         cellContentView.addSubview(collectionView)
     }
     
@@ -181,16 +182,15 @@ extension ViewController: ViewConfiguration {
         pageControl.centerXEqualTo(mainContentView)
         
         collectionView.setAnchorsEqual(to: cellContentView)
-        
-        imageContentView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.75).isActive = true
-        
         cellContentView.anchors(topReference: pageControl.bottomAnchor,
                                 leadingReference: mainContentView.leadingAnchor,
-                                trailingReference: mainContentView.trailingAnchor)
+                                trailingReference: mainContentView.trailingAnchor,
+                                bottomReference: mainContentView.bottomAnchor)
         
-        imageContentView.anchors(topReference: cellContentView.bottomAnchor,
-                                 leadingReference: mainContentView.leadingAnchor,
+        imageContentView.anchors(leadingReference: mainContentView.leadingAnchor,
                                  trailingReference: mainContentView.trailingAnchor,
                                  bottomReference: mainContentView.bottomAnchor)
+        
+        imageContentView.heightAnchor.constraint(equalTo: mainContentView.heightAnchor, multiplier: 0.75).isActive = true
     }
 }

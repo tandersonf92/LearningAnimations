@@ -5,7 +5,6 @@
 //  Created by Anderson Oliveira on 02/04/23.
 //
 
-import Foundation
 import UIKit
 
 final class CollectionViewCell: UICollectionViewCell {
@@ -13,7 +12,7 @@ final class CollectionViewCell: UICollectionViewCell {
     static var identifier: String = "CollectionViewCell"
     
     private lazy var contentStackView: UIStackView = {
-       let stackView = UIStackView()
+        let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 8
         return stackView
@@ -49,31 +48,33 @@ final class CollectionViewCell: UICollectionViewCell {
     @available(*, unavailable)
     required init?(coder: NSCoder) { nil }
     
-    func updateCell(with item: OnboardingItem) {
+    func updateCell(with item: OnboardingItem, isLastCell: Bool) {
         titleLabel.text = item.author
         descriptionLabel.text = item.quote
+        exploreButton.isHidden = !isLastCell
     }
 }
 
 extension CollectionViewCell: ViewConfiguration {
-    func configViews() { }
+    func configViews() {}
     
     func buildViews() {
         addSubview(contentStackView)
         [titleLabel, descriptionLabel, bottomSpacerView].forEach(contentStackView.addArrangedSubview)
+        bottomSpacerView.addSubview(exploreButton)
     }
     
     func setupConstraints() {
         contentStackView.setAnchorsEqual(to: self, padding: .init(top: 8,
-                                                                          left: 8,
-                                                                          bottom: 8,
-                                                                          right: 8))
-
-//        exploreButton.anchors(leadingReference: bottomContainerView.leadingAnchor,
-//                              trailingReference: bottomContainerView.trailingAnchor,
-//                              bottomReference: bottomContainerView.bottomAnchor,
-//                              leftPadding: 24,
-//                              rightPadding: 24,
-//                              bottomPadding: 24)
+                                                                  left: 8,
+                                                                  bottom: 8,
+                                                                  right: 8))
+        
+                exploreButton.anchors(leadingReference: bottomSpacerView.leadingAnchor,
+                                      trailingReference: bottomSpacerView.trailingAnchor,
+                                      bottomReference: bottomSpacerView.bottomAnchor,
+                                      leftPadding: 24,
+                                      rightPadding: 24,
+                                      bottomPadding: 24)
     }
 }
