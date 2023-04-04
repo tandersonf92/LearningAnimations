@@ -11,7 +11,11 @@ final class ViewController: UIViewController {
     
     private let items: [OnboardingItem] = OnboardingItem.quoteItems
     
+    private var imageViews: [UIImageView] = []
+    
     // MARK: Properties
+    private lazy var mainContentView: UIView = UIView()
+    
     private lazy var mainButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = UIFont(name: "Avenir Next", size: 14)
@@ -30,11 +34,15 @@ final class ViewController: UIViewController {
         return pageControl
     }()
     
-    private lazy var containerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .lightGray
-        return view
+    private lazy var contentStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        return stackView
     }()
+    
+    private lazy var cellContentView: UIView = UIView()
+    
+    private lazy var imageContentView: UIView = UIView()
     
     private lazy var collectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: setupCollectionViewLayout())
     
@@ -42,6 +50,7 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+        setupImageViews()
         setupViews()
     }
     
@@ -58,12 +67,58 @@ final class ViewController: UIViewController {
         return layout
     }
     
+    private func setupImageViews() {
+        items.forEach { item in
+            let imageView = UIImageView(image: item.image)
+            imageView.contentMode = .scaleToFill
+            imageView.clipsToBounds = true
+            imageContentView.addSubview(imageView)
+            
+            //            imageView.heightAnchor.constraint(equalTo: imageContentView.heightAnchor, multiplier: 0.3).isActive = true // problema ta na altura, inestigar
+            //                        imageView.heightAnchor.constraint(equalToConstant: 500).isActive = true
+            imageView.anchors(topReference: imageContentView.topAnchor,
+                              leadingReference: imageContentView.leadingAnchor,
+                              trailingReference: imageContentView.trailingAnchor,
+                              bottomReference: imageContentView.bottomAnchor)
+            
+            imageView.alpha = 0
+            imageViews.append(imageView)
+        }
+        imageViews.first?.alpha = 1
+        
+    }
+    
     private func getCurrentIndex() -> Int {
         return Int(collectionView.contentOffset.x / collectionView.frame.width)
     }
     
     private func updatePageControlPage(page index: Int) {
         pageControl.currentPage = index
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let index = getCurrentIndex()
+        pageControl.currentPage = index
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let xPosition = scrollView.contentOffset.x
+        let index = getCurrentIndex()
+        let fadeInAlpha = (xPosition - collectionviewWidht * CGFloat(index)) / collectionviewWidht
+        //        print("fadeInAlpha = \(fadeInAlpha)")
+        let fadeOutAlpha = CGFloat(1 - fadeInAlpha)
+        
+        
+        let canShow = (index < items.count - 1)
+        
+        if canShow {
+            imageViews[index].alpha = fadeOutAlpha
+            imageViews[index + 1].alpha = fadeInAlpha
+        }
+    }
+    
+    var collectionviewWidht: CGFloat {
+        collectionView.frame.size.width
     }
     
     @objc private func nextButtonClick() {
@@ -81,10 +136,10 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as? CollectionViewCell else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath)
-            return cell }
+            return cell
+        }
         cell.updateCell(with: items[indexPath.row])
         return cell
     }
@@ -98,32 +153,44 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
     }
 }
 
-
-
 // MARK: ViewConfiguration
 extension ViewController: ViewConfiguration {
     func configViews() {
         view.backgroundColor = .white
+        imageContentView.backgroundColor = .orange
     }
     
     func buildViews() {
-        [mainButton, pageControl, containerView].forEach(view.addSubview)
-        containerView.addSubview(collectionView)
+        view.addSubview(mainContentView)
+        
+        [mainButton, pageControl].forEach(mainContentView.addSubview)
+        
+        [cellContentView, imageContentView].forEach(mainContentView.addSubview)
+        cellContentView.addSubview(collectionView)
     }
     
     func setupConstraints() {
-        mainButton.anchors(topReference: view.safeAreaLayoutGuide.topAnchor,
-                           trailingReference: view.trailingAnchor,
+        
+        mainContentView.setAnchorsEqual(to: view)
+        
+        mainButton.anchors(topReference: mainContentView.safeAreaLayoutGuide.topAnchor,
+                           trailingReference: mainContentView.trailingAnchor,
                            rightPadding: 16)
         
         pageControl.anchors(topReference: mainButton.bottomAnchor)
-        pageControl.centerXEqualTo(view)
+        pageControl.centerXEqualTo(mainContentView)
         
-        containerView.anchors(topReference: pageControl.bottomAnchor,
-                              leadingReference: view.leadingAnchor,
-                              trailingReference: view.trailingAnchor,
-                              bottomReference: view.bottomAnchor)
+        collectionView.setAnchorsEqual(to: cellContentView)
         
-        collectionView.setAnchorsEqual(to: containerView)
+        imageContentView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.75).isActive = true
+        
+        cellContentView.anchors(topReference: pageControl.bottomAnchor,
+                                leadingReference: mainContentView.leadingAnchor,
+                                trailingReference: mainContentView.trailingAnchor)
+        
+        imageContentView.anchors(topReference: cellContentView.bottomAnchor,
+                                 leadingReference: mainContentView.leadingAnchor,
+                                 trailingReference: mainContentView.trailingAnchor,
+                                 bottomReference: mainContentView.bottomAnchor)
     }
 }

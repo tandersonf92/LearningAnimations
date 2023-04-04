@@ -15,14 +15,6 @@ final class CollectionViewCell: UICollectionViewCell {
     private lazy var contentStackView: UIStackView = {
        let stackView = UIStackView()
         stackView.axis = .vertical
-        return stackView
-    }()
-    
-    private lazy var topContainerView: UIView = UIView()
-    
-    private lazy var labelsContainerStackView: UIStackView = {
-       let stackView = UIStackView()
-        stackView.axis = .vertical
         stackView.spacing = 8
         return stackView
     }()
@@ -43,7 +35,11 @@ final class CollectionViewCell: UICollectionViewCell {
     
     private lazy var bottomSpacerView: UIView = UIView()
     
-    private lazy var bottomContainerView: UIView = UIView()
+    private lazy var exploreButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("EXPLORE", for: .normal)
+        return button
+    }()
     
     override init(frame: CGRect){
         super.init(frame: .zero)
@@ -60,27 +56,24 @@ final class CollectionViewCell: UICollectionViewCell {
 }
 
 extension CollectionViewCell: ViewConfiguration {
-    func configViews() {
-        topContainerView.backgroundColor = .blue
-        bottomContainerView.backgroundColor = .orange
-    }
+    func configViews() { }
     
     func buildViews() {
         addSubview(contentStackView)
-        [topContainerView, bottomContainerView].forEach(contentStackView.addArrangedSubview)
-        topContainerView.addSubview(labelsContainerStackView)
-        [titleLabel, descriptionLabel, bottomSpacerView].forEach(labelsContainerStackView.addArrangedSubview)
+        [titleLabel, descriptionLabel, bottomSpacerView].forEach(contentStackView.addArrangedSubview)
     }
     
     func setupConstraints() {
-        contentStackView.setAnchorsEqual(to: self)
-        
-        labelsContainerStackView.setAnchorsEqual(to: topContainerView, padding: .init(top: 8,
-                                                                                       left: 8,
-                                                                                       bottom: 8,
-                                                                                       right: 8))
-        
-        
-        bottomContainerView.heightAnchor.constraint(equalTo: topContainerView.heightAnchor, multiplier: 4).isActive = true
+        contentStackView.setAnchorsEqual(to: self, padding: .init(top: 8,
+                                                                          left: 8,
+                                                                          bottom: 8,
+                                                                          right: 8))
+
+//        exploreButton.anchors(leadingReference: bottomContainerView.leadingAnchor,
+//                              trailingReference: bottomContainerView.trailingAnchor,
+//                              bottomReference: bottomContainerView.bottomAnchor,
+//                              leftPadding: 24,
+//                              rightPadding: 24,
+//                              bottomPadding: 24)
     }
 }
