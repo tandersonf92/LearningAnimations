@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol CollectionViewDelegate: AnyObject {
+    func goToMainPage()
+}
+
 final class CollectionViewCell: UICollectionViewCell {
     
     static var identifier: String = "CollectionViewCell"
+    
+    weak var delegate: CollectionViewDelegate?
     
     private lazy var contentStackView: UIStackView = {
         let stackView = UIStackView()
@@ -37,6 +43,8 @@ final class CollectionViewCell: UICollectionViewCell {
     private lazy var exploreButton: UIButton = {
         let button = UIButton()
         button.setTitle("EXPLORE", for: .normal)
+        button.addTarget(self, action: #selector(goToHome), for: .touchUpInside)
+        button.backgroundColor = .black
         return button
     }()
     
@@ -52,6 +60,10 @@ final class CollectionViewCell: UICollectionViewCell {
         titleLabel.text = item.author
         descriptionLabel.text = item.quote
         exploreButton.isHidden = !isLastCell
+    }
+    
+    @objc private func goToHome() {
+        delegate?.goToMainPage()
     }
 }
 

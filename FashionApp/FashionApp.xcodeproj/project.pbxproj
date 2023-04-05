@@ -17,6 +17,7 @@
 		717A2EB029D9B7EE005E4089 /* ViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717A2EAF29D9B7EE005E4089 /* ViewConfiguration.swift */; };
 		717A2EB229D9BBD7005E4089 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717A2EB129D9BBD7005E4089 /* CollectionViewCell.swift */; };
 		717A2EB429D9D68A005E4089 /* OnboardingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717A2EB329D9D68A005E4089 /* OnboardingItem.swift */; };
+		71854B7829DD8D6300FE0FA8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71854B7729DD8D6300FE0FA8 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		717A2EAF29D9B7EE005E4089 /* ViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfiguration.swift; sourceTree = "<group>"; };
 		717A2EB129D9BBD7005E4089 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		717A2EB329D9D68A005E4089 /* OnboardingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingItem.swift; sourceTree = "<group>"; };
+		71854B7729DD8D6300FE0FA8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				717A2EAF29D9B7EE005E4089 /* ViewConfiguration.swift */,
 				717A2EB129D9BBD7005E4089 /* CollectionViewCell.swift */,
 				717A2EB329D9D68A005E4089 /* OnboardingItem.swift */,
+				71854B7729DD8D6300FE0FA8 /* HomeViewController.swift */,
 			);
 			path = FashionApp;
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 				717A2E9D29D9A5CE005E4089 /* ViewController.swift in Sources */,
 				717A2E9929D9A5CE005E4089 /* AppDelegate.swift in Sources */,
 				717A2EB229D9BBD7005E4089 /* CollectionViewCell.swift in Sources */,
+				71854B7829DD8D6300FE0FA8 /* HomeViewController.swift in Sources */,
 				717A2E9B29D9A5CE005E4089 /* SceneDelegate.swift in Sources */,
 				717A2EB429D9D68A005E4089 /* OnboardingItem.swift in Sources */,
 				717A2EB029D9B7EE005E4089 /* ViewConfiguration.swift in Sources */,

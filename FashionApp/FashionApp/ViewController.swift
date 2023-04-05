@@ -8,7 +8,7 @@
 import UIKit
 
 final class ViewController: UIViewController {
-    
+
     private let items: [OnboardingItem] = OnboardingItem.quoteItems
     
     private var imageViews: [UIImageView] = []
@@ -58,6 +58,7 @@ final class ViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.isPagingEnabled = true
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.identifier)
     }
     
@@ -102,7 +103,6 @@ final class ViewController: UIViewController {
         
         let index = getCurrentIndex()
         let fadeInAlpha = (xPosition - collectionviewWidth * CGFloat(index)) / collectionviewWidth
-        //        print("fadeInAlpha = \(fadeInAlpha)")
         let fadeOutAlpha = CGFloat(1 - fadeInAlpha)
         
         let canShow = (index < items.count - 1)
@@ -130,7 +130,7 @@ final class ViewController: UIViewController {
     }
 }
 
-
+// MARK: Collection Delegate, need refactor to another file
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         items.count
@@ -143,6 +143,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
         }
         let isLastCell = indexPath.row == items.count - 1
         cell.updateCell(with: items[indexPath.row], isLastCell: isLastCell)
+        cell.delegate = self
         return cell
     }
     
@@ -152,6 +153,19 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         0
+    }
+}
+
+// MARK: CollectionViewDelegate
+extension ViewController: CollectionViewDelegate {
+    func goToMainPage() {
+        if let sceneDelegate = view.window?.windowScene?.delegate as? SceneDelegate, let window = sceneDelegate.window {
+            window.rootViewController = HomeViewController()
+            UIView.transition(with: window,
+                              duration: 0.5,
+                              options: .transitionCrossDissolve,
+                              animations: nil)
+        }
     }
 }
 
@@ -191,6 +205,6 @@ extension ViewController: ViewConfiguration {
                                  trailingReference: mainContentView.trailingAnchor,
                                  bottomReference: mainContentView.bottomAnchor)
         
-        imageContentView.heightAnchor.constraint(equalTo: mainContentView.heightAnchor, multiplier: 0.75).isActive = true
+        imageContentView.heightAnchor.constraint(equalTo: mainContentView.heightAnchor, multiplier: 0.70).isActive = true
     }
 }
