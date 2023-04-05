@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class OnboardingViewController: UIViewController {
 
     private let items: [OnboardingItem] = OnboardingItem.quoteItems
     
@@ -131,7 +131,7 @@ final class ViewController: UIViewController {
 }
 
 // MARK: Collection Delegate, need refactor to another file
-extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension OnboardingViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         items.count
     }
@@ -157,7 +157,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
 }
 
 // MARK: CollectionViewDelegate
-extension ViewController: CollectionViewDelegate {
+extension OnboardingViewController: CollectionViewDelegate {
     func goToMainPage() {
         if let sceneDelegate = view.window?.windowScene?.delegate as? SceneDelegate, let window = sceneDelegate.window {
             window.rootViewController = HomeViewController()
@@ -170,7 +170,7 @@ extension ViewController: CollectionViewDelegate {
 }
 
 // MARK: ViewConfiguration
-extension ViewController: ViewConfiguration {
+extension OnboardingViewController: ViewConfiguration {
     func configViews() {
         view.backgroundColor = .white
         collectionView.backgroundColor = .clear
