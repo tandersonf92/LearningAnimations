@@ -44,7 +44,6 @@
 		71405FE429E0345700BC7693 = {
 			isa = PBXGroup;
 			children = (
-				7140600629E03C9E00BC7693 /* ViewConfiguration.swift */,
 				71405FEF29E0345700BC7693 /* HolidayApp */,
 				71405FEE29E0345700BC7693 /* Products */,
 			);
@@ -61,6 +60,7 @@
 		71405FEF29E0345700BC7693 /* HolidayApp */ = {
 			isa = PBXGroup;
 			children = (
+				7140600629E03C9E00BC7693 /* ViewConfiguration.swift */,
 				71405FF029E0345700BC7693 /* AppDelegate.swift */,
 				71405FF229E0345700BC7693 /* SceneDelegate.swift */,
 				71405FF429E0345700BC7693 /* OnboardingViewController.swift */,
