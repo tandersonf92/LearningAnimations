@@ -14,6 +14,8 @@ final class OnboardingViewController: UIViewController {
     private lazy var collectionView: UICollectionView = UICollectionView(frame: .zero,
                                                                          collectionViewLayout: setupCollectionViewLayout())
     
+    private let slides: [Slide] = Slide.collection
+    
     // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,14 +44,15 @@ final class OnboardingViewController: UIViewController {
 
 extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDataSource,                                    UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        3
+        slides.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingViewCell.identifier, for: indexPath) as? OnboardingViewCell else {
             fatalError("Error creating the cell")
         }
-        cell.backgroundColor = .red
+        let slide = slides[indexPath.row]
+        cell.configureCell(with: slide)
         return cell
     }
     

@@ -16,6 +16,7 @@
 		715F638829E058810059C20B /* ViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715F638729E058810059C20B /* ViewConfiguration.swift */; };
 		715F638A29E058940059C20B /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715F638929E058940059C20B /* UIView+Constraints.swift */; };
 		715F638D29E059A70059C20B /* OnboardingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715F638C29E059A70059C20B /* OnboardingViewCell.swift */; };
+		715F639029E067CB0059C20B /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715F638F29E067CB0059C20B /* Slide.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		715F638729E058810059C20B /* ViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfiguration.swift; sourceTree = "<group>"; };
 		715F638929E058940059C20B /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		715F638C29E059A70059C20B /* OnboardingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewCell.swift; sourceTree = "<group>"; };
+		715F638F29E067CB0059C20B /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		715F636F29E058000059C20B /* RestaurantApp */ = {
 			isa = PBXGroup;
 			children = (
+				715F638E29E067C40059C20B /* Model */,
 				715F638B29E059980059C20B /* CollectionView */,
 				715F638629E058120059C20B /* Delegate */,
 				715F638529E0580C0059C20B /* Extensions */,
@@ -106,6 +109,14 @@
 				715F638C29E059A70059C20B /* OnboardingViewCell.swift */,
 			);
 			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		715F638E29E067C40059C20B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				715F638F29E067CB0059C20B /* Slide.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +194,7 @@
 				715F638829E058810059C20B /* ViewConfiguration.swift in Sources */,
 				715F638A29E058940059C20B /* UIView+Constraints.swift in Sources */,
 				715F637129E058000059C20B /* AppDelegate.swift in Sources */,
+				715F639029E067CB0059C20B /* Slide.swift in Sources */,
 				715F637329E058000059C20B /* SceneDelegate.swift in Sources */,
 				715F638D29E059A70059C20B /* OnboardingViewCell.swift in Sources */,
 			);
