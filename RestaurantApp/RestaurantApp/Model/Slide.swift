@@ -16,11 +16,11 @@ struct Slide {
     
     static let collection: [Slide] = [
         .init(title: "Get your favorite food delivered to you under 30 minutes anytime",
-              animationName: "",
+              animationName: "lottieDeliveryGuy",
               buttonTitle: "Next",
               buttonColor: .systemYellow),
         .init(title: "We serve only from choiced restaurants in your area",
-              animationName: "",
+              animationName: "lottieRestaurant",
               buttonTitle: "Order Now",
               buttonColor: .systemGreen)
     ]
