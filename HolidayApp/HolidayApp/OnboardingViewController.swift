@@ -75,7 +75,6 @@ final class OnboardingViewController: UIViewController {
     
     // MARK: Selectors
     @objc private func goToHomePage() {
-        print("OK")
         navigationController?.pushViewController(HomePageViewController(), animated: true)
     }
     
@@ -151,7 +150,7 @@ final class OnboardingViewController: UIViewController {
 extension OnboardingViewController: ViewConfiguration {
     
     func configViews() {
-        view.backgroundColor = .clear
+        view.backgroundColor = .white
         contentView.backgroundColor = .init(white: 0.1, alpha: 0.5)
     }
     
