@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		71405FF129E0345700BC7693 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71405FF029E0345700BC7693 /* AppDelegate.swift */; };
 		71405FF329E0345700BC7693 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71405FF229E0345700BC7693 /* SceneDelegate.swift */; };
-		71405FF529E0345700BC7693 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71405FF429E0345700BC7693 /* ViewController.swift */; };
+		71405FF529E0345700BC7693 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71405FF429E0345700BC7693 /* OnboardingViewController.swift */; };
 		71405FF829E0345700BC7693 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71405FF629E0345700BC7693 /* Main.storyboard */; };
 		71405FFA29E0345B00BC7693 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71405FF929E0345B00BC7693 /* Assets.xcassets */; };
 		71405FFD29E0345B00BC7693 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71405FFB29E0345B00BC7693 /* LaunchScreen.storyboard */; };
+		7140600529E0392600BC7693 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7140600429E0392600BC7693 /* UIView+Constraints.swift */; };
+		7140600729E03C9F00BC7693 /* ViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7140600629E03C9E00BC7693 /* ViewConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		71405FED29E0345700BC7693 /* HolidayApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HolidayApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71405FF029E0345700BC7693 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71405FF229E0345700BC7693 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		71405FF429E0345700BC7693 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		71405FF429E0345700BC7693 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		71405FF729E0345700BC7693 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		71405FF929E0345B00BC7693 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71405FFC29E0345B00BC7693 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		71405FFE29E0345B00BC7693 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7140600429E0392600BC7693 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
+		7140600629E03C9E00BC7693 /* ViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +44,7 @@
 		71405FE429E0345700BC7693 = {
 			isa = PBXGroup;
 			children = (
+				7140600629E03C9E00BC7693 /* ViewConfiguration.swift */,
 				71405FEF29E0345700BC7693 /* HolidayApp */,
 				71405FEE29E0345700BC7693 /* Products */,
 			);
@@ -58,11 +63,12 @@
 			children = (
 				71405FF029E0345700BC7693 /* AppDelegate.swift */,
 				71405FF229E0345700BC7693 /* SceneDelegate.swift */,
-				71405FF429E0345700BC7693 /* ViewController.swift */,
+				71405FF429E0345700BC7693 /* OnboardingViewController.swift */,
 				71405FF629E0345700BC7693 /* Main.storyboard */,
 				71405FF929E0345B00BC7693 /* Assets.xcassets */,
 				71405FFB29E0345B00BC7693 /* LaunchScreen.storyboard */,
 				71405FFE29E0345B00BC7693 /* Info.plist */,
+				7140600429E0392600BC7693 /* UIView+Constraints.swift */,
 			);
 			path = HolidayApp;
 			sourceTree = "<group>";
@@ -138,9 +144,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71405FF529E0345700BC7693 /* ViewController.swift in Sources */,
+				71405FF529E0345700BC7693 /* OnboardingViewController.swift in Sources */,
 				71405FF129E0345700BC7693 /* AppDelegate.swift in Sources */,
 				71405FF329E0345700BC7693 /* SceneDelegate.swift in Sources */,
+				7140600729E03C9F00BC7693 /* ViewConfiguration.swift in Sources */,
+				7140600529E0392600BC7693 /* UIView+Constraints.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
