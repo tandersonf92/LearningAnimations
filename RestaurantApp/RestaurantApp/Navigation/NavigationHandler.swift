@@ -7,19 +7,19 @@
 
 import UIKit
 
-protocol NavitationHandlerProtocol {
+protocol NavigationHandlerProtocol {
     func showMainPage()
     func showOnboardingPage()
 }
 
-final class NavitationHandler: NavitationHandlerProtocol {
+final class NavigationHandler: NavigationHandlerProtocol {
     
     func showMainPage() {
         setRootViewController(with: HomeScreenViewController())
     }
     
     func showOnboardingPage() {
-        setRootViewController(with: OnboardingViewController())
+        setRootViewController(with: OnboardingViewFactory.build())
     }
     
     private func setRootViewController(with viewController: UIViewController) {

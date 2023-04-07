@@ -12,15 +12,14 @@ protocol LoadingViewControllerDelegateProtocol: AnyObject {
     func showHomePage()
 }
 
-
 final class LoadingViewController: UIViewController {
     
     // MARK: Properties
     private var viewModel: LoadingViewModelProtocol
-    private let navigationHandler: NavitationHandlerProtocol
+    private let navigationHandler: NavigationHandlerProtocol
     
     // MARK: Life Cycle
-    init(viewModel: LoadingViewModelProtocol, navigationHandler: NavitationHandlerProtocol) {
+    init(viewModel: LoadingViewModelProtocol, navigationHandler: NavigationHandlerProtocol) {
         self.viewModel = viewModel
         self.navigationHandler = navigationHandler
         super.init(nibName: nil, bundle: nil)

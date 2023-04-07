@@ -7,15 +7,23 @@
 
 import UIKit
 
+protocol OnboardingViewControllerDelegateProtocol: AnyObject {
+    func populateSlides(with slides: [Slide])
+}
+
 final class OnboardingViewController: UIViewController {
     
     // MARK: Properties
-    private let navigationHandler: NavitationHandlerProtocol
+    var viewModel: OnboardingViewModelProtocol
+    
+    private let navigationHandler: NavigationHandlerProtocol
+    
+    private var slides: [Slide] = []
     
     private lazy var collectionView: UICollectionView = UICollectionView(frame: .zero,
                                                                          collectionViewLayout: setupCollectionViewLayout())
     
-    private let slides: [Slide] = Slide.collection
+    private let dataSource: OnboardingViewDataSourceProtocol
     
     private lazy var pageControl: UIPageControl = {
         let pageControl = UIPageControl()
@@ -26,9 +34,14 @@ final class OnboardingViewController: UIViewController {
     }()
     
     // MARK: Life Cycle
-    init(navigationHandler: NavitationHandlerProtocol = NavitationHandler()) {
+    init(navigationHandler: NavigationHandlerProtocol = NavigationHandler(),
+         dataSource: OnboardingViewDataSourceProtocol = OnboardingViewDataSource(slides: Slide.collection),
+         viewModel: OnboardingViewModel) {
         self.navigationHandler = navigationHandler
+        self.dataSource = dataSource
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        viewModel.populateSlides()
     }
     
     @available(*, unavailable)
@@ -40,7 +53,7 @@ final class OnboardingViewController: UIViewController {
         setupCollectionView()
         setupPageControl()
     }
-    
+    // MARK: scrollViewDidEndDecelerating
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let index = Int(collectionView.contentOffset.y / scrollView.frame.size.height)
         print(index)
@@ -50,12 +63,14 @@ final class OnboardingViewController: UIViewController {
     
     // MARK: Private Functions
     private func setupCollectionView() {
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        collectionView.delegate = dataSource
+        collectionView.dataSource = dataSource
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.contentInsetAdjustmentBehavior = .never
         collectionView.register(OnboardingViewCell.self, forCellWithReuseIdentifier: OnboardingViewCell.identifier)
+        
+        dataSource.handleActionButtonTap = self.handleActionButtonTap(at:)
     }
     
     private func setupCollectionViewLayout() -> UICollectionViewFlowLayout {
@@ -70,9 +85,9 @@ final class OnboardingViewController: UIViewController {
         pageControl.transform = CGAffineTransform(rotationAngle: angle)
     }
     
-    private func handleActionButtonTap( at indexPath: IndexPath) {
+    private func handleActionButtonTap(at indexPath: IndexPath) {
         if indexPath.item == slides.count - 1 {
-            showHomeScreen()
+            navigationHandler.showMainPage()
         } else {
             let nextItem = indexPath.item + 1
             let nextIndexPath = IndexPath(item: nextItem, section: 0)
@@ -86,34 +101,11 @@ final class OnboardingViewController: UIViewController {
     }
 }
 
-extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDataSource,                                    UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        slides.count
+// MARK: OnboardingViewControllerDelegateProtocol
+extension OnboardingViewController: OnboardingViewControllerDelegateProtocol {
+    func populateSlides(with slides: [Slide]) {
+        self.slides = slides
     }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingViewCell.identifier, for: indexPath) as? OnboardingViewCell else {
-            fatalError("Error creating/casting the cell")
-        }
-        let slide = slides[indexPath.row]
-        cell.configureCell(with: slide)
-        cell.actionButtonDidTap = { [weak self] in
-            self?.handleActionButtonTap(at: indexPath)
-        }
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemWidth = collectionView.bounds.width
-        let itemHeight = collectionView.bounds.height
-        return CGSize(width: itemWidth,
-                      height: itemHeight)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        0
-    }
-    
 }
 
 // MARK: ViewConfiguration
