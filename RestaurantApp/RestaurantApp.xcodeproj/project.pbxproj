@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		714F47D229E089C8001D68D0 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714F47D129E089C8001D68D0 /* HomeScreenViewController.swift */; };
 		715F637129E058000059C20B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715F637029E058000059C20B /* AppDelegate.swift */; };
 		715F637329E058000059C20B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715F637229E058000059C20B /* SceneDelegate.swift */; };
 		715F637529E058000059C20B /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715F637429E058000059C20B /* OnboardingViewController.swift */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		15D3DD4BDD8694365B25570B /* Pods-RestaurantApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantApp.release.xcconfig"; path = "Target Support Files/Pods-RestaurantApp/Pods-RestaurantApp.release.xcconfig"; sourceTree = "<group>"; };
 		303E2F6C1C1FC7CFEF8B8237 /* Pods-RestaurantApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantApp.debug.xcconfig"; path = "Target Support Files/Pods-RestaurantApp/Pods-RestaurantApp.debug.xcconfig"; sourceTree = "<group>"; };
+		714F47D129E089C8001D68D0 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		715F636D29E058000059C20B /* RestaurantApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		715F637029E058000059C20B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		715F637229E058000059C20B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		714F47D029E089AE001D68D0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				715F637429E058000059C20B /* OnboardingViewController.swift */,
+				714F47D129E089C8001D68D0 /* HomeScreenViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		715F636429E058000059C20B = {
 			isa = PBXGroup;
 			children = (
@@ -83,13 +94,13 @@
 		715F636F29E058000059C20B /* RestaurantApp */ = {
 			isa = PBXGroup;
 			children = (
+				714F47D029E089AE001D68D0 /* Views */,
 				7188413729E06D2A00F770B6 /* Assets */,
 				715F638E29E067C40059C20B /* Model */,
 				715F638B29E059980059C20B /* CollectionView */,
 				715F638629E058120059C20B /* Delegate */,
 				715F638529E0580C0059C20B /* Extensions */,
 				715F638429E058070059C20B /* Protocols */,
-				715F637429E058000059C20B /* OnboardingViewController.swift */,
 				715F637629E058000059C20B /* Main.storyboard */,
 				715F637929E058020059C20B /* Assets.xcassets */,
 				715F637B29E058020059C20B /* LaunchScreen.storyboard */,
@@ -275,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				715F637529E058000059C20B /* OnboardingViewController.swift in Sources */,
+				714F47D229E089C8001D68D0 /* HomeScreenViewController.swift in Sources */,
 				715F638829E058810059C20B /* ViewConfiguration.swift in Sources */,
 				715F638A29E058940059C20B /* UIView+Constraints.swift in Sources */,
 				715F637129E058000059C20B /* AppDelegate.swift in Sources */,

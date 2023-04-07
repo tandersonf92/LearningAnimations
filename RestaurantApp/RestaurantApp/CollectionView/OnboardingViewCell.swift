@@ -12,11 +12,12 @@ final class OnboardingViewCell: UICollectionViewCell {
     // MARK: Properties
     static var identifier = "OnboardingViewCell"
     
+    var actionButtonDidTap: (() -> Void)?
+    
     private lazy var containerView: UIView = UIView()
     
     private lazy var contentStackView: UIStackView = {
        let stackView = UIStackView()
-        stackView.spacing = 12
         stackView.axis = .vertical
         return stackView
     }()
@@ -39,6 +40,7 @@ final class OnboardingViewCell: UICollectionViewCell {
     private lazy var mainButton: UIButton = {
        let button = UIButton()
         button.titleLabel?.font = UIFont(name: "Avenir Next", size: 24)
+        button.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
         button.tintColor = .white
         return button
     }()
@@ -50,7 +52,18 @@ final class OnboardingViewCell: UICollectionViewCell {
         setupViews()
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) { nil }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        mainButton.layer.cornerRadius = 8
+    }
+    
+    // MARK: Selectors
+    @objc private func actionButtonTapped() {
+        actionButtonDidTap?()
+    }
     
     // MARK: Cell configuration function
     func configureCell(with slide: Slide) {
@@ -78,7 +91,6 @@ final class OnboardingViewCell: UICollectionViewCell {
 // MARK: ViewConfiguration
 extension OnboardingViewCell: ViewConfiguration {
     func configViews() {
-        self.backgroundColor = .white
     }
     
     func buildViews() {
@@ -99,9 +111,9 @@ extension OnboardingViewCell: ViewConfiguration {
         animationContentView.heightAnchor.constraint(equalTo: animationContentView.widthAnchor, multiplier: 1).isActive = true
         
         titleLabel.setAnchorsEqual(to: internalBottomContentView,
-                                         padding: .init(top: 36,
+                                         padding: .init(top: 32,
                                                         left: 24,
-                                                        bottom: 36,
+                                                        bottom: 16,
                                                         right: 24))
         mainButton.setAnchorsEqual(to: mainButtonContentView, padding: .init(top: 0,
                                                                              left: 24,
