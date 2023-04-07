@@ -10,6 +10,7 @@ import UIKit
 final class OnboardingViewController: UIViewController {
     
     // MARK: Properties
+    private let navigationHandler: NavitationHandlerProtocol
     
     private lazy var collectionView: UICollectionView = UICollectionView(frame: .zero,
                                                                          collectionViewLayout: setupCollectionViewLayout())
@@ -25,6 +26,14 @@ final class OnboardingViewController: UIViewController {
     }()
     
     // MARK: Life Cycle
+    init(navigationHandler: NavitationHandlerProtocol = NavitationHandler()) {
+        self.navigationHandler = navigationHandler
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) { nil }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -73,16 +82,7 @@ final class OnboardingViewController: UIViewController {
     }
     
     private func showHomeScreen() {
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-           let sceneDelegate = windowScene.delegate as? SceneDelegate,
-           let window = sceneDelegate.window {
-            window.rootViewController = HomeScreenViewController()
-            
-            UIView.transition(with: window,
-                              duration: 0.25,
-                              options: .transitionCrossDissolve,
-                              animations: nil)
-        }
+        navigationHandler.showMainPage()
     }
 }
 
