@@ -14,7 +14,6 @@
 		715F637129E058000059C20B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715F637029E058000059C20B /* AppDelegate.swift */; };
 		715F637329E058000059C20B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715F637229E058000059C20B /* SceneDelegate.swift */; };
 		715F637529E058000059C20B /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715F637429E058000059C20B /* OnboardingViewController.swift */; };
-		715F637829E058000059C20B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 715F637629E058000059C20B /* Main.storyboard */; };
 		715F637A29E058020059C20B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 715F637929E058020059C20B /* Assets.xcassets */; };
 		715F637D29E058020059C20B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 715F637B29E058020059C20B /* LaunchScreen.storyboard */; };
 		715F638829E058810059C20B /* ViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715F638729E058810059C20B /* ViewConfiguration.swift */; };
@@ -28,7 +27,6 @@
 		71FF282C29E0B79400388DEB /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF282B29E0B79400388DEB /* OnboardingViewModel.swift */; };
 		71FF282E29E0B8D300388DEB /* OnboardingViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF282D29E0B8D300388DEB /* OnboardingViewDataSource.swift */; };
 		71FF283029E0C16C00388DEB /* OnboardingViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF282F29E0C16C00388DEB /* OnboardingViewFactory.swift */; };
-		71FF283229E0C2B000388DEB /* NavigationHandlerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF283129E0C2B000388DEB /* NavigationHandlerFactory.swift */; };
 		803CB576BC91C480E705FFB7 /* Pods_RestaurantApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F49E1243558B70BE3E70DDF3 /* Pods_RestaurantApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +41,6 @@
 		715F637029E058000059C20B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		715F637229E058000059C20B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		715F637429E058000059C20B /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
-		715F637729E058000059C20B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		715F637929E058020059C20B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		715F637C29E058020059C20B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		715F637E29E058020059C20B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,7 +55,6 @@
 		71FF282B29E0B79400388DEB /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		71FF282D29E0B8D300388DEB /* OnboardingViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewDataSource.swift; sourceTree = "<group>"; };
 		71FF282F29E0C16C00388DEB /* OnboardingViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewFactory.swift; sourceTree = "<group>"; };
-		71FF283129E0C2B000388DEB /* NavigationHandlerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHandlerFactory.swift; sourceTree = "<group>"; };
 		F49E1243558B70BE3E70DDF3 /* Pods_RestaurantApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -159,7 +155,6 @@
 				715F638629E058120059C20B /* Delegate */,
 				715F638529E0580C0059C20B /* Extensions */,
 				715F638429E058070059C20B /* Protocols */,
-				715F637629E058000059C20B /* Main.storyboard */,
 				715F637929E058020059C20B /* Assets.xcassets */,
 				715F637B29E058020059C20B /* LaunchScreen.storyboard */,
 				715F637E29E058020059C20B /* Info.plist */,
@@ -221,7 +216,6 @@
 			isa = PBXGroup;
 			children = (
 				71972F0D29E0A29D00B8EFDA /* NavigationHandler.swift */,
-				71FF283129E0C2B000388DEB /* NavigationHandlerFactory.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -298,7 +292,6 @@
 				715F637D29E058020059C20B /* LaunchScreen.storyboard in Resources */,
 				7188413B29E06D3500F770B6 /* lottieDeliveryGuy.json in Resources */,
 				715F637A29E058020059C20B /* Assets.xcassets in Resources */,
-				715F637829E058000059C20B /* Main.storyboard in Resources */,
 				7188413A29E06D3500F770B6 /* lottieRestaurant.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -364,7 +357,6 @@
 				715F637129E058000059C20B /* AppDelegate.swift in Sources */,
 				715F639029E067CB0059C20B /* Slide.swift in Sources */,
 				715F637329E058000059C20B /* SceneDelegate.swift in Sources */,
-				71FF283229E0C2B000388DEB /* NavigationHandlerFactory.swift in Sources */,
 				71FF283029E0C16C00388DEB /* OnboardingViewFactory.swift in Sources */,
 				714F47DA29E09E92001D68D0 /* LoadingViewModel.swift in Sources */,
 				714F47D729E09E45001D68D0 /* LoadingViewController.swift in Sources */,
@@ -375,14 +367,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		715F637629E058000059C20B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				715F637729E058000059C20B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		715F637B29E058020059C20B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
