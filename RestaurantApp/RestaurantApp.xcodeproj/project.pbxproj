@@ -24,6 +24,7 @@
 		7188413A29E06D3500F770B6 /* lottieRestaurant.json in Resources */ = {isa = PBXBuildFile; fileRef = 7188413829E06D3500F770B6 /* lottieRestaurant.json */; };
 		7188413B29E06D3500F770B6 /* lottieDeliveryGuy.json in Resources */ = {isa = PBXBuildFile; fileRef = 7188413929E06D3500F770B6 /* lottieDeliveryGuy.json */; };
 		71972F0E29E0A29D00B8EFDA /* NavigationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71972F0D29E0A29D00B8EFDA /* NavigationHandler.swift */; };
+		71FF282A29E0B5EE00388DEB /* LoadingFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF282929E0B5EE00388DEB /* LoadingFactory.swift */; };
 		803CB576BC91C480E705FFB7 /* Pods_RestaurantApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F49E1243558B70BE3E70DDF3 /* Pods_RestaurantApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		7188413829E06D3500F770B6 /* lottieRestaurant.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottieRestaurant.json; sourceTree = "<group>"; };
 		7188413929E06D3500F770B6 /* lottieDeliveryGuy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottieDeliveryGuy.json; sourceTree = "<group>"; };
 		71972F0D29E0A29D00B8EFDA /* NavigationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHandler.swift; sourceTree = "<group>"; };
+		71FF282929E0B5EE00388DEB /* LoadingFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingFactory.swift; sourceTree = "<group>"; };
 		F49E1243558B70BE3E70DDF3 /* Pods_RestaurantApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -87,6 +89,7 @@
 			children = (
 				714F47D629E09E45001D68D0 /* LoadingViewController.swift */,
 				714F47D929E09E92001D68D0 /* LoadingViewModel.swift */,
+				71FF282929E0B5EE00388DEB /* LoadingFactory.swift */,
 			);
 			path = Loading;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				714F47D229E089C8001D68D0 /* HomeScreenViewController.swift in Sources */,
 				715F638829E058810059C20B /* ViewConfiguration.swift in Sources */,
 				715F638A29E058940059C20B /* UIView+Constraints.swift in Sources */,
+				71FF282A29E0B5EE00388DEB /* LoadingFactory.swift in Sources */,
 				715F637129E058000059C20B /* AppDelegate.swift in Sources */,
 				715F639029E067CB0059C20B /* Slide.swift in Sources */,
 				715F637329E058000059C20B /* SceneDelegate.swift in Sources */,
