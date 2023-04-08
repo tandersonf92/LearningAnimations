@@ -13,7 +13,6 @@ final class LoadingViewControllerSpy: LoadingViewControllerDelegateProtocol {
     // MARK: Properties
     private var viewModel: LoadingViewModelProtocol
     
-    
     var showOnboardingWasCalled = false
     var showHomePageWasCalled = false
     

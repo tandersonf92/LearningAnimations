@@ -15,15 +15,12 @@ final class LoginServiceStub: LoginServiceProtocol {
     init(isOnboardingSeen: Bool) {
         self.isOnboardingSeen = isOnboardingSeen
     }
+    
     func isUserOnboardingSeen() -> Bool {
         isOnboardingSeen
     }
     
-    func setOnboardingSeen() {
-        
-    }
+    func setOnboardingSeen() { }
     
-    func resetOnboardingSeen() {
-        
-    }
+    func resetOnboardingSeen() { }
 }

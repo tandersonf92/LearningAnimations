@@ -8,7 +8,7 @@
 import Foundation
 
 enum OnboardingViewFactory {
-    static func build() -> OnboardingViewController { // adicionar a collectionView e jogar como dependencia na controller. //scrollDidAcelerating nao funcionando pq n tem referencia dela, e ela e chamada no delegate, que esta no datasource
+    static func build() -> OnboardingViewController {
         let slides = Slide.collection
         let navigationHandler = NavigationHandler()
         let loginService = LoginService()
