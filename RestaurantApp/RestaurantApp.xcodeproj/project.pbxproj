@@ -10,7 +10,7 @@
 		714F47D229E089C8001D68D0 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714F47D129E089C8001D68D0 /* HomeScreenViewController.swift */; };
 		714F47D729E09E45001D68D0 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714F47D629E09E45001D68D0 /* LoadingViewController.swift */; };
 		714F47DA29E09E92001D68D0 /* LoadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714F47D929E09E92001D68D0 /* LoadingViewModel.swift */; };
-		714F47DD29E09EB0001D68D0 /* LoginViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714F47DC29E09EB0001D68D0 /* LoginViewService.swift */; };
+		714F47DD29E09EB0001D68D0 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714F47DC29E09EB0001D68D0 /* LoginService.swift */; };
 		715F637129E058000059C20B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715F637029E058000059C20B /* AppDelegate.swift */; };
 		715F637329E058000059C20B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715F637229E058000059C20B /* SceneDelegate.swift */; };
 		715F637529E058000059C20B /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715F637429E058000059C20B /* OnboardingViewController.swift */; };
@@ -26,6 +26,10 @@
 		718EE68F29E1BD1A00F8FCF0 /* RestaurantAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718EE68E29E1BD1A00F8FCF0 /* RestaurantAppTests.swift */; };
 		718EE69829E1BE4B00F8FCF0 /* OnboardingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718EE69729E1BE4B00F8FCF0 /* OnboardingViewModelTests.swift */; };
 		718EE69C29E1BEE200F8FCF0 /* OnboardingViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718EE69B29E1BEE200F8FCF0 /* OnboardingViewControllerSpy.swift */; };
+		718EE69E29E1D08900F8FCF0 /* LoginServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718EE69D29E1D08900F8FCF0 /* LoginServiceTests.swift */; };
+		718EE6A029E1D11D00F8FCF0 /* LoadingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718EE69F29E1D11D00F8FCF0 /* LoadingViewModelTests.swift */; };
+		718EE6A229E1D1D700F8FCF0 /* LoginServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718EE6A129E1D1D700F8FCF0 /* LoginServiceStub.swift */; };
+		718EE6A429E1D2EF00F8FCF0 /* LoadingViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718EE6A329E1D2EF00F8FCF0 /* LoadingViewControllerSpy.swift */; };
 		71972F0E29E0A29D00B8EFDA /* NavigationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71972F0D29E0A29D00B8EFDA /* NavigationHandler.swift */; };
 		71FF282A29E0B5EE00388DEB /* LoadingFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF282929E0B5EE00388DEB /* LoadingFactory.swift */; };
 		71FF282C29E0B79400388DEB /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF282B29E0B79400388DEB /* OnboardingViewModel.swift */; };
@@ -50,7 +54,7 @@
 		714F47D129E089C8001D68D0 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		714F47D629E09E45001D68D0 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		714F47D929E09E92001D68D0 /* LoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewModel.swift; sourceTree = "<group>"; };
-		714F47DC29E09EB0001D68D0 /* LoginViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewService.swift; sourceTree = "<group>"; };
+		714F47DC29E09EB0001D68D0 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		715F636D29E058000059C20B /* RestaurantApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		715F637029E058000059C20B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		715F637229E058000059C20B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +73,10 @@
 		718EE68E29E1BD1A00F8FCF0 /* RestaurantAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantAppTests.swift; sourceTree = "<group>"; };
 		718EE69729E1BE4B00F8FCF0 /* OnboardingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelTests.swift; sourceTree = "<group>"; };
 		718EE69B29E1BEE200F8FCF0 /* OnboardingViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewControllerSpy.swift; sourceTree = "<group>"; };
+		718EE69D29E1D08900F8FCF0 /* LoginServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceTests.swift; sourceTree = "<group>"; };
+		718EE69F29E1D11D00F8FCF0 /* LoadingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewModelTests.swift; sourceTree = "<group>"; };
+		718EE6A129E1D1D700F8FCF0 /* LoginServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceStub.swift; sourceTree = "<group>"; };
+		718EE6A329E1D2EF00F8FCF0 /* LoadingViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewControllerSpy.swift; sourceTree = "<group>"; };
 		71972F0D29E0A29D00B8EFDA /* NavigationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHandler.swift; sourceTree = "<group>"; };
 		71FF282929E0B5EE00388DEB /* LoadingFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingFactory.swift; sourceTree = "<group>"; };
 		71FF282B29E0B79400388DEB /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
@@ -147,7 +155,7 @@
 		714F47DB29E09EA6001D68D0 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				714F47DC29E09EB0001D68D0 /* LoginViewService.swift */,
+				714F47DC29E09EB0001D68D0 /* LoginService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -247,6 +255,10 @@
 				718EE68E29E1BD1A00F8FCF0 /* RestaurantAppTests.swift */,
 				718EE69729E1BE4B00F8FCF0 /* OnboardingViewModelTests.swift */,
 				718EE69B29E1BEE200F8FCF0 /* OnboardingViewControllerSpy.swift */,
+				718EE69D29E1D08900F8FCF0 /* LoginServiceTests.swift */,
+				718EE69F29E1D11D00F8FCF0 /* LoadingViewModelTests.swift */,
+				718EE6A129E1D1D700F8FCF0 /* LoginServiceStub.swift */,
+				718EE6A329E1D2EF00F8FCF0 /* LoadingViewControllerSpy.swift */,
 			);
 			path = RestaurantAppTests;
 			sourceTree = "<group>";
@@ -416,7 +428,7 @@
 			files = (
 				71972F0E29E0A29D00B8EFDA /* NavigationHandler.swift in Sources */,
 				715F637529E058000059C20B /* OnboardingViewController.swift in Sources */,
-				714F47DD29E09EB0001D68D0 /* LoginViewService.swift in Sources */,
+				714F47DD29E09EB0001D68D0 /* LoginService.swift in Sources */,
 				714F47D229E089C8001D68D0 /* HomeScreenViewController.swift in Sources */,
 				715F638829E058810059C20B /* ViewConfiguration.swift in Sources */,
 				71FF282C29E0B79400388DEB /* OnboardingViewModel.swift in Sources */,
@@ -438,9 +450,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				718EE6A029E1D11D00F8FCF0 /* LoadingViewModelTests.swift in Sources */,
 				718EE69829E1BE4B00F8FCF0 /* OnboardingViewModelTests.swift in Sources */,
 				718EE68F29E1BD1A00F8FCF0 /* RestaurantAppTests.swift in Sources */,
+				718EE6A429E1D2EF00F8FCF0 /* LoadingViewControllerSpy.swift in Sources */,
 				718EE69C29E1BEE200F8FCF0 /* OnboardingViewControllerSpy.swift in Sources */,
+				718EE69E29E1D08900F8FCF0 /* LoginServiceTests.swift in Sources */,
+				718EE6A229E1D1D700F8FCF0 /* LoginServiceStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

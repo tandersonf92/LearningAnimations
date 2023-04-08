@@ -10,7 +10,8 @@ enum LoadingFactory {
         let loginService = LoginService()
         let viewModel = LoadingViewModel(loginService: loginService)
         let navigationHandler = NavigationHandler()
+        let viewController = LoadingViewController(viewModel: viewModel, navigationHandler: navigationHandler)
         
-        return LoadingViewController(viewModel: viewModel, navigationHandler: navigationHandler)
+        return viewController
     }
 }
