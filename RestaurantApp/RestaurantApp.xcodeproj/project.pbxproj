@@ -26,7 +26,6 @@
 		718EE68F29E1BD1A00F8FCF0 /* RestaurantAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718EE68E29E1BD1A00F8FCF0 /* RestaurantAppTests.swift */; };
 		718EE69829E1BE4B00F8FCF0 /* OnboardingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718EE69729E1BE4B00F8FCF0 /* OnboardingViewModelTests.swift */; };
 		718EE69C29E1BEE200F8FCF0 /* OnboardingViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718EE69B29E1BEE200F8FCF0 /* OnboardingViewControllerSpy.swift */; };
-		718EE69E29E1D08900F8FCF0 /* LoginServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718EE69D29E1D08900F8FCF0 /* LoginServiceTests.swift */; };
 		718EE6A029E1D11D00F8FCF0 /* LoadingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718EE69F29E1D11D00F8FCF0 /* LoadingViewModelTests.swift */; };
 		718EE6A229E1D1D700F8FCF0 /* LoginServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718EE6A129E1D1D700F8FCF0 /* LoginServiceStub.swift */; };
 		718EE6A429E1D2EF00F8FCF0 /* LoadingViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718EE6A329E1D2EF00F8FCF0 /* LoadingViewControllerSpy.swift */; };
@@ -73,7 +72,6 @@
 		718EE68E29E1BD1A00F8FCF0 /* RestaurantAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantAppTests.swift; sourceTree = "<group>"; };
 		718EE69729E1BE4B00F8FCF0 /* OnboardingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelTests.swift; sourceTree = "<group>"; };
 		718EE69B29E1BEE200F8FCF0 /* OnboardingViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewControllerSpy.swift; sourceTree = "<group>"; };
-		718EE69D29E1D08900F8FCF0 /* LoginServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceTests.swift; sourceTree = "<group>"; };
 		718EE69F29E1D11D00F8FCF0 /* LoadingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewModelTests.swift; sourceTree = "<group>"; };
 		718EE6A129E1D1D700F8FCF0 /* LoginServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceStub.swift; sourceTree = "<group>"; };
 		718EE6A329E1D2EF00F8FCF0 /* LoadingViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewControllerSpy.swift; sourceTree = "<group>"; };
@@ -255,7 +253,6 @@
 				718EE68E29E1BD1A00F8FCF0 /* RestaurantAppTests.swift */,
 				718EE69729E1BE4B00F8FCF0 /* OnboardingViewModelTests.swift */,
 				718EE69B29E1BEE200F8FCF0 /* OnboardingViewControllerSpy.swift */,
-				718EE69D29E1D08900F8FCF0 /* LoginServiceTests.swift */,
 				718EE69F29E1D11D00F8FCF0 /* LoadingViewModelTests.swift */,
 				718EE6A129E1D1D700F8FCF0 /* LoginServiceStub.swift */,
 				718EE6A329E1D2EF00F8FCF0 /* LoadingViewControllerSpy.swift */,
@@ -455,7 +452,6 @@
 				718EE68F29E1BD1A00F8FCF0 /* RestaurantAppTests.swift in Sources */,
 				718EE6A429E1D2EF00F8FCF0 /* LoadingViewControllerSpy.swift in Sources */,
 				718EE69C29E1BEE200F8FCF0 /* OnboardingViewControllerSpy.swift in Sources */,
-				718EE69E29E1D08900F8FCF0 /* LoginServiceTests.swift in Sources */,
 				718EE6A229E1D1D700F8FCF0 /* LoginServiceStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
