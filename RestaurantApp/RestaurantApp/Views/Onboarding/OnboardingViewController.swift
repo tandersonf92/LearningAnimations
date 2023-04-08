@@ -20,9 +20,7 @@ final class OnboardingViewController: UIViewController {
     
     private let navigationHandler: NavigationHandlerProtocol
     
-    private var collectionView: OnboardingCollectionViewProtocol
-    
-    private var dataSource: OnboardingViewDataSourceProtocol?
+    private let collectionView: OnboardingCollectionViewProtocol
     
     private lazy var pageControl: UIPageControl = {
         let pageControl = UIPageControl()
@@ -38,7 +36,6 @@ final class OnboardingViewController: UIViewController {
         self.viewModel = viewModel
         self.collectionView = collectionView
         super.init(nibName: nil, bundle: nil)
-        self.dataSource = viewModel.getDataSource()
     }
     
     @available(*, unavailable)

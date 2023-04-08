@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  LoadingViewController.swift
 //  RestaurantApp
 //
 //  Created by Anderson Oliveira on 07/04/23.
@@ -31,7 +31,6 @@ final class LoadingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViews()
         viewModel.checkOnboardingStatus()
     }
 }
@@ -44,20 +43,5 @@ extension LoadingViewController: LoadingViewControllerDelegateProtocol {
     
     func showHomePage() {
         navigationHandler.showMainPage()
-    }
-}
-
-// MARK: ViewConfiguration
-extension LoadingViewController: ViewConfiguration {
-    func configViews() {
-        
-    }
-    
-    func buildViews() {
-        
-    }
-    
-    func setupConstraints() {
-        
     }
 }
