@@ -24,7 +24,6 @@
 		7188413B29E06D3500F770B6 /* lottieDeliveryGuy.json in Resources */ = {isa = PBXBuildFile; fileRef = 7188413929E06D3500F770B6 /* lottieDeliveryGuy.json */; };
 		718EE68629E1BBC000F8FCF0 /* OnboardingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718EE68529E1BBC000F8FCF0 /* OnboardingCollectionView.swift */; };
 		718EE68F29E1BD1A00F8FCF0 /* RestaurantAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718EE68E29E1BD1A00F8FCF0 /* RestaurantAppTests.swift */; };
-		718EE69629E1BD3F00F8FCF0 /* OnboardingViewModelTests in Resources */ = {isa = PBXBuildFile; fileRef = 718EE69529E1BD3F00F8FCF0 /* OnboardingViewModelTests */; };
 		718EE69829E1BE4B00F8FCF0 /* OnboardingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718EE69729E1BE4B00F8FCF0 /* OnboardingViewModelTests.swift */; };
 		718EE69C29E1BEE200F8FCF0 /* OnboardingViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718EE69B29E1BEE200F8FCF0 /* OnboardingViewControllerSpy.swift */; };
 		71972F0E29E0A29D00B8EFDA /* NavigationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71972F0D29E0A29D00B8EFDA /* NavigationHandler.swift */; };
@@ -68,7 +67,6 @@
 		718EE68529E1BBC000F8FCF0 /* OnboardingCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionView.swift; sourceTree = "<group>"; };
 		718EE68C29E1BD1A00F8FCF0 /* RestaurantAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestaurantAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		718EE68E29E1BD1A00F8FCF0 /* RestaurantAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantAppTests.swift; sourceTree = "<group>"; };
-		718EE69529E1BD3F00F8FCF0 /* OnboardingViewModelTests */ = {isa = PBXFileReference; lastKnownFileType = folder; name = OnboardingViewModelTests; path = "../../../../RestaurantApp - Backup/Backup TOTAL/RestaurantApp/RestaurantAppTests/OnboardingViewModelTests"; sourceTree = "<group>"; };
 		718EE69729E1BE4B00F8FCF0 /* OnboardingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelTests.swift; sourceTree = "<group>"; };
 		718EE69B29E1BEE200F8FCF0 /* OnboardingViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewControllerSpy.swift; sourceTree = "<group>"; };
 		71972F0D29E0A29D00B8EFDA /* NavigationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHandler.swift; sourceTree = "<group>"; };
@@ -246,7 +244,6 @@
 		718EE68D29E1BD1A00F8FCF0 /* RestaurantAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				718EE69529E1BD3F00F8FCF0 /* OnboardingViewModelTests */,
 				718EE68E29E1BD1A00F8FCF0 /* RestaurantAppTests.swift */,
 				718EE69729E1BE4B00F8FCF0 /* OnboardingViewModelTests.swift */,
 				718EE69B29E1BEE200F8FCF0 /* OnboardingViewControllerSpy.swift */,
@@ -365,7 +362,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				718EE69629E1BD3F00F8FCF0 /* OnboardingViewModelTests in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
