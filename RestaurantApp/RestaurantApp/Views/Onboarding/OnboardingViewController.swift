@@ -8,22 +8,21 @@
 import UIKit
 
 protocol OnboardingViewControllerDelegateProtocol: AnyObject {
-    func populateSlides(with slides: [Slide])
+    func goToNextSlide(at indexPath: IndexPath)
+    func goToMainPage()
+    func updatePageControlCurrentPage(with index: Int)
 }
 
 final class OnboardingViewController: UIViewController {
     
     // MARK: Properties
-    var viewModel: OnboardingViewModelProtocol
+    private let viewModel: OnboardingViewModelProtocol
     
     private let navigationHandler: NavigationHandlerProtocol
     
-    private var slides: [Slide] = []
+    private var collectionView: OnboardingCollectionViewProtocol
     
-    private lazy var collectionView: UICollectionView = UICollectionView(frame: .zero,
-                                                                         collectionViewLayout: setupCollectionViewLayout())
-    
-    private let dataSource: OnboardingViewDataSourceProtocol
+    private var dataSource: OnboardingViewDataSourceProtocol?
     
     private lazy var pageControl: UIPageControl = {
         let pageControl = UIPageControl()
@@ -34,14 +33,12 @@ final class OnboardingViewController: UIViewController {
     }()
     
     // MARK: Life Cycle
-    init(navigationHandler: NavigationHandlerProtocol = NavigationHandler(),
-         dataSource: OnboardingViewDataSourceProtocol = OnboardingViewDataSource(slides: Slide.collection),
-         viewModel: OnboardingViewModel) {
+    init(navigationHandler: NavigationHandlerProtocol, viewModel: OnboardingViewModelProtocol, collectionView: OnboardingCollectionViewProtocol) {
         self.navigationHandler = navigationHandler
-        self.dataSource = dataSource
         self.viewModel = viewModel
+        self.collectionView = collectionView
         super.init(nibName: nil, bundle: nil)
-        viewModel.populateSlides()
+        self.dataSource = viewModel.getDataSource()
     }
     
     @available(*, unavailable)
@@ -50,61 +47,31 @@ final class OnboardingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        setupCollectionView()
         setupPageControl()
-    }
-    // MARK: scrollViewDidEndDecelerating
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let index = Int(collectionView.contentOffset.y / scrollView.frame.size.height)
-        print(index)
-        pageControl.currentPage = index
-    }
-    
-    
-    // MARK: Private Functions
-    private func setupCollectionView() {
-        collectionView.delegate = dataSource
-        collectionView.dataSource = dataSource
-        collectionView.isPagingEnabled = true
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.contentInsetAdjustmentBehavior = .never
-        collectionView.register(OnboardingViewCell.self, forCellWithReuseIdentifier: OnboardingViewCell.identifier)
-        
-        dataSource.handleActionButtonTap = self.handleActionButtonTap(at:)
-    }
-    
-    private func setupCollectionViewLayout() -> UICollectionViewFlowLayout {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        return layout
     }
     
     private func setupPageControl() {
-        pageControl.numberOfPages = slides.count
+        pageControl.numberOfPages = viewModel.getSlidesNumber()
         let angle = CGFloat.pi/2
         pageControl.transform = CGAffineTransform(rotationAngle: angle)
-    }
-    
-    private func handleActionButtonTap(at indexPath: IndexPath) {
-        if indexPath.item == slides.count - 1 {
-            navigationHandler.showMainPage()
-        } else {
-            let nextItem = indexPath.item + 1
-            let nextIndexPath = IndexPath(item: nextItem, section: 0)
-            collectionView.scrollToItem(at: nextIndexPath, at: .top, animated: true)
-            pageControl.currentPage = nextItem
-        }
-    }
-    
-    private func showHomeScreen() {
-        navigationHandler.showMainPage()
     }
 }
 
 // MARK: OnboardingViewControllerDelegateProtocol
 extension OnboardingViewController: OnboardingViewControllerDelegateProtocol {
-    func populateSlides(with slides: [Slide]) {
-        self.slides = slides
+    func goToNextSlide(at indexPath: IndexPath) {
+        let nextItem = indexPath.item + 1
+        let nextIndexPath = IndexPath(item: nextItem, section: 0)
+        collectionView.scrollToItem(at: nextIndexPath, at: .top, animated: true)
+        pageControl.currentPage = nextItem
+    }
+    
+    func goToMainPage() {
+        navigationHandler.showMainPage()
+    }
+    
+    func updatePageControlCurrentPage(with index: Int) {
+        pageControl.currentPage = index
     }
 }
 

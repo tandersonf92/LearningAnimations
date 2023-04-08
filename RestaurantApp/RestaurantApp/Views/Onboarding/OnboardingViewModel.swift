@@ -5,35 +5,48 @@
 //  Created by Anderson Oliveira on 07/04/23.
 //
 
-import Foundation
 import UIKit
 
 protocol OnboardingViewModelProtocol {
     var delegate: OnboardingViewControllerDelegateProtocol? { get set }
-    
-    func populateSlides()
+    func getDataSource() -> OnboardingViewDataSourceProtocol
     func getSlidesNumber() -> Int
+    func handleActionButtonTap(at indexPath: IndexPath)
 }
 
-struct OnboardingViewModel: OnboardingViewModelProtocol {
+final class OnboardingViewModel: OnboardingViewModelProtocol {
     
     private let dataSource: OnboardingViewDataSourceProtocol
+    private let loginService: LoginServiceProtocol
     
-    weak var delegate: OnboardingViewControllerDelegateProtocol? {
-        didSet {
-            populateSlides()
-        }
-    }
+    weak var delegate: OnboardingViewControllerDelegateProtocol?
     
-    func populateSlides() {
-        delegate?.populateSlides(with: dataSource.getSlides)
+    init(dataSource: OnboardingViewDataSourceProtocol, loginService: LoginServiceProtocol) {
+        self.dataSource = dataSource
+        self.loginService = loginService
+        configureDataSource()
     }
     
     func getSlidesNumber() -> Int  {
-        dataSource.getSlides.count
+        dataSource.getNumberOfSlides
     }
     
-    init(dataSource: OnboardingViewDataSourceProtocol) {
-        self.dataSource = dataSource
+    func getDataSource() -> OnboardingViewDataSourceProtocol {
+        return dataSource
+    }
+    
+    func handleActionButtonTap(at indexPath: IndexPath) {
+        let numberOfSlides = dataSource.getNumberOfSlides
+        
+        if indexPath.item == numberOfSlides - 1 {
+            loginService.setOnboardingSeen()
+            delegate?.goToMainPage()
+        } else {
+            delegate?.goToNextSlide(at: indexPath)
+        }
+    }
+    
+    private func configureDataSource() {
+        dataSource.handleActionButtonTap = self.handleActionButtonTap(at:)
     }
 }

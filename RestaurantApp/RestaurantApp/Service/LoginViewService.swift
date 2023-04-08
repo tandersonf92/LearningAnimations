@@ -24,7 +24,7 @@ struct LoginService: LoginServiceProtocol {
     }
     
     func setOnboardingSeen() {
-        UserDefaults.standard.set(false, forKey: OnboardingKey.onboardingSeen.rawValue)
+        UserDefaults.standard.set(true, forKey: OnboardingKey.onboardingSeen.rawValue)
     }
     
     func resetOnboardingSeen() {

@@ -26,6 +26,7 @@ struct LoadingViewModel: LoadingViewModelProtocol {
         let isOnboardingHaveSeen = loginService.isUserOnboardingSeen()
         
         if isOnboardingHaveSeen {
+            loginService.setOnboardingSeen()
             delegate?.showHomePage()
         } else {
             delegate?.showOnboarding()

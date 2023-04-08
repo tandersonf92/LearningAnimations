@@ -8,7 +8,9 @@
 import UIKit
 
 protocol OnboardingViewDataSourceProtocol: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    var delegate: OnboardingViewControllerDelegateProtocol? { get set }
     var getSlides: [Slide] { get }
+    var getNumberOfSlides: Int { get }
     var handleActionButtonTap: ((IndexPath) -> Void)? { get set }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
@@ -20,6 +22,9 @@ protocol OnboardingViewDataSourceProtocol: UICollectionViewDataSource, UICollect
 final class OnboardingViewDataSource: NSObject, UICollectionViewDataSource , UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, OnboardingViewDataSourceProtocol {
     
     private let slides: [Slide]
+    private let collectionView: OnboardingCollectionViewProtocol
+    
+    weak var delegate: OnboardingViewControllerDelegateProtocol?
     
     var handleActionButtonTap: ((IndexPath) -> Void)?
     
@@ -27,10 +32,23 @@ final class OnboardingViewDataSource: NSObject, UICollectionViewDataSource , UIC
         slides
     }
     
-    init(slides: [Slide]) {
-        self.slides = slides
+    var getNumberOfSlides: Int {
+        slides.count
     }
-
+    
+    init(slides: [Slide], collectionView: OnboardingCollectionViewProtocol) {
+        self.slides = slides
+        self.collectionView = collectionView
+        super.init()
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let index = Int(collectionView.contentOffset.y / scrollView.frame.size.height)
+        delegate?.updatePageControlCurrentPage(with: index)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         slides.count
     }
@@ -43,9 +61,7 @@ final class OnboardingViewDataSource: NSObject, UICollectionViewDataSource , UIC
         let slide = slides[indexPath.row]
         cell.configureCell(with: slide)
         cell.actionButtonDidTap = { [weak self] in
-            guard let self = self,
-                  let handleActionButtonTap = self.handleActionButtonTap else { return }
-            
+            guard let self = self, let handleActionButtonTap = self.handleActionButtonTap else { return }
             handleActionButtonTap(indexPath)
         }
         return cell
